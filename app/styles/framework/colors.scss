@@ -1,0 +1,9 @@
+
+$colors: ('tint',   '#9C27B0'),
+         ('darkbg', '#37474F')
+         ('dark',   '#000000');
+
+@each $key, $val in $colors {
+	.c-#{$key} { background-color: #{$val} }
+	.f-#{$key} { color: #{$val} }
+}

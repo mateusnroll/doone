@@ -1,0 +1,15 @@
+extends ../templates/plain.pug
+
+block content
+	p Create a new account
+
+	form(method='post', action='/authentication')
+		label
+			p Email
+			input(type='text', name='email')
+
+		label
+			p Password
+			input(type='password', name='password')
+
+		button(type='submit') Create account
