@@ -3,11 +3,11 @@ const r       = express.Router()
 
 r.get ('/', PublicHomeController.index)
 
-r.get ('/authentication', AuthenticationController.new)
-r.post('/authentication', AuthenticationController.create)
+r.get ('/login', AuthenticationController.new)
+r.post('/login', AuthenticationController.create)
 
-r.get ('/registration', RegistrationController.new)
-r.post('/registration', RegistrationController.create)
+r.get ('/register', RegistrationController.new)
+r.post('/register', RegistrationController.create)
 
 r.get ('/tasks', TasksController.index)
 

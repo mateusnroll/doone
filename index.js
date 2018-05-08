@@ -4,7 +4,25 @@ const express    = require('express')
 const app        = express()
 const routes     = require('./config/routes')
 const bodyParser = require('body-parser')
+const mongoose   = require('mongoose')
+const session    = require('express-session')
 
+/* MongoDB connection setup */
+const dbUrl = 'mongodb://127.0.0.1/doone'
+mongoose.connect(dbUrl)
+mongoose.Promise = global.Promise
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
+/* Session setup */
+const sessionConfig = { 
+	secret: 'ABC', 
+	cookie: {}, resave: false, 
+	saveUninitialized: false 
+}
+app.use(session(sessionConfig))
+
+/* Bodyparser setup */
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
