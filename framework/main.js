@@ -5,6 +5,8 @@ const camelCase = require('camelcase')
 module.exports.init = function() {
 	globalizer()
 	requireControllers()
+	requireModels()
+	requireServices()
 }
 
 function globalizer() {
@@ -12,6 +14,8 @@ function globalizer() {
 	global['appPath'] = `${rootPath}/app`
 	global['viewsPath'] = `${rootPath}/app/views`
 	global['contorllersPath'] = `${rootPath}/app/controllers`
+	global['modelsPath'] = `${rootPath}/app/models`
+	global['servicesPath'] = `${rootPath}/app/services`
 }
 
 function requireControllers() {
@@ -25,9 +29,36 @@ function requireControllers() {
 		global[name] = instance
 	})
 }
-
 function requireController(name) {
 	const file       = require(`${rootPath}/app/controllers/${name}`)
+	const key        = Object.keys(file)[0]
+	const controller = file[key]
+
+	return new controller
+}
+
+function requireModels() {
+	const files = fs.readdirSync(modelsPath)
+	files.forEach(file => {
+		const name = camelCase(path.parse(file).name, { pascalCase: true })
+		const instance = requireModel(file)
+		global[name] = instance
+	})
+}
+function requireModel(name) {
+	return require(`${rootPath}/app/models/${name}`)
+}
+
+function requireServices() {
+	const files = fs.readdirSync(servicesPath)
+	files.forEach(file => {
+		const name = camelCase(path.parse(file).name, { pascalCase: true })
+		const instance = requireService(file)
+		global[name] = instance
+	})
+}
+function requireService(name) {
+	const file       = require(`${rootPath}/app/services/${name}`)
 	const key        = Object.keys(file)[0]
 	const controller = file[key]
 

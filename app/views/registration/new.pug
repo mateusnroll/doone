@@ -1,6 +1,10 @@
 extends ../templates/plain.pug
+include ../mixins/errors.pug
 
 block content
+	if(errors.length > 0)
+		+errors(errors)
+
 	p Create a new account
 
 	form(method='post', action='/register')

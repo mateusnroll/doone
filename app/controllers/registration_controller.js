@@ -1,18 +1,26 @@
-const User = require('../models/user')
-
 class Registrationcontroller extends BaseController {
 	new(req, res) {
-		super.render('registration/new', res)
+		super.render('registration/new', res, { errors: req.flash('errors') })
 	}
 
 	create(req, res) {
-		const user = new User({
+		User.create({
 			email: req.body.email,
 			password: req.body.password
 		})
-		user.save(err => {
-			if (err) console.log(err)
-			else console.log('saved!')
+		.then(() => {
+			super.redirect('/login', res)
+		})
+		.catch(err => {
+			switch (err.code) {
+				case 11000: // Dup key (dup email)
+					req.flash('errors', 'This email already exists')
+					super.redirect('/register', res)
+					break
+				default:
+					console.log(err)
+					super.redirect('/500', res)
+			}
 		})
 	}
 }

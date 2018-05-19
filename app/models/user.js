@@ -29,9 +29,8 @@ class User {
 			if (!this.isModified('password')) next()
 
 			const salt = await bcrypt.genSalt(10)
-			const hash = await bcrypt.hash(this.password, salt)
+			this.password = await bcrypt.hash(this.password, salt)
 
-			this.password = hash
 			return next()
 		} catch (e) {
 			return next(e)
@@ -39,7 +38,7 @@ class User {
 	}
 }
 
-userSchema.pre('save', User.hashPassword)
+userSchema.pre('validate', User.hashPassword)
 
 userSchema.loadClass(User)
 module.exports = mongoose.model('User', userSchema)
