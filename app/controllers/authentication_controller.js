@@ -9,7 +9,7 @@ class AuthenticationController extends BaseController {
 			const validPassword = await user.comparePassword(req.body.password)
 
 			if(validPassword) {
-				const session = await SessionsService.create(user)
+				const session = await SessionService.create(user)
 				req.session.uniqueId = session.id
 				super.redirect('/lists', res)
 			} else {

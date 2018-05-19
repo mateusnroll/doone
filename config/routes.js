@@ -9,6 +9,6 @@ r.post('/login', AuthenticationController.create)
 r.get ('/register', RegistrationController.new)
 r.post('/register', RegistrationController.create)
 
-r.get ('/lists', ListsController.index)
+r.get ('/lists', AuthenticationService.protect, ListsController.index)
 
 module.exports = r
