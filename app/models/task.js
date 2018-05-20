@@ -1,16 +1,19 @@
-const mongoose = require('mongoose')
-const Schema   = mongoose.Schema
+const mongoose   = require('mongoose')
+const Schema     = mongoose.Schema
+const timestamps = require('mongoose-timestamp')
 
 const taskSchema = new Schema ({
-    name:        { type: String, required: true },
+	title:       { type: String, required: true },
 	description: { type: String },
 
-    owner:    { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    assignee: { type: Schema.Types.ObjectId, ref: 'User' }
+	list:     { type: Schema.Types.ObjectId, ref: 'List', required: true },
+	owner:    { type: Schema.Types.ObjectId, ref: 'User', required: true },
+	assignee: { type: Schema.Types.ObjectId, ref: 'User' }
 })
 
 class Task {
 }
 
+taskSchema.plugin(timestamps)
 taskSchema.loadClass(Task)
 module.exports = mongoose.model('Task', taskSchema)

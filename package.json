@@ -13,6 +13,7 @@
     "express-session": "^1.15.6",
     "gulp-watch": "^5.0.0",
     "mongoose": "^5.0.17",
+    "mongoose-timestamp": "^0.6.0",
     "pug": "^2.0.3",
     "stimulus": "^1.0.1",
     "turbolinks": "^5.1.1"

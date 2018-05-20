@@ -3,25 +3,13 @@ class Registrationcontroller extends BaseController {
 		super.render('registration/new', res, { errors: req.flash('errors') })
 	}
 
-	create(req, res) {
-		User.create({
-			email: req.body.email,
-			password: req.body.password
-		})
-		.then(() => {
-			super.redirect('/login', res)
-		})
-		.catch(err => {
-			switch (err.code) {
-				case 11000: // Dup key (dup email)
-					req.flash('errors', 'This email already exists')
-					super.redirect('/register', res)
-					break
-				default:
-					console.log(err)
-					super.redirect('/500', res)
-			}
-		})
+	async create(req, res) {
+		try {
+			const list = await ListService.createForCurrentUser(req.body.name, req.body.description)
+			console.log(list)
+		} catch (e) {
+			console.log(e)
+		}
 	}
 }
 

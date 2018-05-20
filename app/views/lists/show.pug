@@ -1,0 +1,16 @@
+extends ../templates/main.pug
+
+block content
+	h1= list.name
+	small= list.description
+
+	div.new-task
+		form(method='post', action=`/lists/${list.id}/tasks`)
+			p New task
+			label
+				input(type="text", name="title")
+				button(type='submit') +
+
+	ul.tasks
+		each task in list.tasks
+			li= task.title

@@ -1,0 +1,19 @@
+extends ../templates/main.pug
+include ../mixins/errors.pug
+
+block content
+	if(errors.length > 0)
+		+errors(errors)
+
+	p New list
+
+	form(method='post', action='/lists')
+		label
+			p List name
+			input(type='text', name='name')
+
+		label
+			p Description
+			input(type='text', name='description')
+
+		button(type='submit') Create list
