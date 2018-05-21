@@ -20,13 +20,16 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "chai": "^4.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-nodemon": "^2.2.1",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "mocha": "^5.2.0",
+    "sinon": "^5.0.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/mocha/bin/mocha ./test/**/*_test.js",
     "dev": "node_modules/.bin/gulp dev"
   },
   "author": "mateusnroll",
