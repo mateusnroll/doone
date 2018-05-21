@@ -17,6 +17,23 @@ class TasksController extends BaseController {
 			super.redirect(`/lists/${req.params.listId}`, res)
 		}
 	}
+
+	async update(req, res) {
+		try {
+			const task = await Task.findById(req.params.taskId)
+
+			if(req.body.completed === 'true') {
+				task.complete(req.user.id)
+			} else if(req.body.completed === 'false') {
+				task.uncomplete(req.user.id)
+			}
+
+			super.redirect(`/lists/${req.params.listId}`, res)
+		} catch (e) {
+			req.flash('error', e.message)
+			super.redirect(`/lists/${req.params.listId}`, res)
+		}
+	}
 }
 
 module.exports = { TasksController }

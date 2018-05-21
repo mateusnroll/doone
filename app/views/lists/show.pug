@@ -1,6 +1,9 @@
 extends ../templates/main.pug
+include ./_task.pug
 
 block content
+	a(href='/lists') My lists
+
 	h1= list.name
 	small= list.description
 
@@ -13,4 +16,5 @@ block content
 
 	ul.tasks
 		each task in list.tasks
-			li= task.title
+			li
+				+task(task)

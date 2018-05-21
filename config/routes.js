@@ -15,5 +15,6 @@ r.post('/lists', AuthenticationService.protect, ListsController.create)
 r.get ('/lists/:id', AuthenticationService.protect, ListsController.show)
 
 r.post('/lists/:listId/tasks', AuthenticationService.protect, TasksController.create)
+r.post('/lists/:listId/tasks/:taskId', AuthenticationService.protect, TasksController.update)
 
 module.exports = r

@@ -1,4 +1,11 @@
 extends ../templates/main.pug
 
 block content
-	h1 Pug - node template engine
+	h1 My lists
+
+	ul
+		each list in lists
+			a(href=`/lists/${list.id}`)
+				= list.name
+
+	a(href='/lists/new') New list

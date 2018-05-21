@@ -1,6 +1,10 @@
 class ListsController extends BaseController {
-	index(req, res) {
-		super.render('lists/index', res)
+	async index(req, res) {
+		const lists = await List
+			.find({ owner: req.user.id })
+			.sort({ name: 1 })
+
+		super.render('lists/index', res, { lists })
 	}
 
 	new(req, res) {
@@ -19,7 +23,12 @@ class ListsController extends BaseController {
 
 	async show(req, res) {
 		const list = await List.findById(req.params.id).populate('tasks')
-		super.render('lists/show', res, { list })
+
+		if(list.owner == req.user.id) {
+			super.render('lists/show', res, { list })
+		} else {
+			super.render('lists/404', res)
+		}
 	}
 }
 
