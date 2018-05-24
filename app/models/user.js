@@ -1,6 +1,8 @@
-const mongoose = require('mongoose')
-const Schema   = mongoose.Schema
-const bcrypt   = require('bcrypt')
+const mongoose   = require('mongoose')
+const Schema     = mongoose.Schema
+const bcrypt     = require('bcrypt')
+const timestamps = require('mongoose-timestamp')
+
 
 const userSchema = new Schema ({
 	name:     { type: String },
@@ -40,5 +42,6 @@ class User {
 
 userSchema.pre('validate', User.hashPassword)
 
+userSchema.plugin(timestamps)
 userSchema.loadClass(User)
 module.exports = mongoose.model('User', userSchema)
