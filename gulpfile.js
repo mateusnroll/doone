@@ -8,6 +8,7 @@ gulp.task('dev', ['watch-sass', 'watch-js', 'nodemon'])
 
 gulp.task('nodemon', () => {
 	nodemon({
+		exec: 'node --inspect',
 		script: 'index.js',
 		ext: 'js pug',
 		env: { 'NODE_ENV': 'development' }
