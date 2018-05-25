@@ -371,13 +371,62 @@ body {
   border-left: 1rem solid;
   border-right: 1rem solid; }
 
-.b0, .btn {
+.b0, .btn, .btn-icon {
   border: none; }
 
 .round, .input, .btn {
   border-radius: .25rem; }
 
-.c-tint, .btn {
+.circle {
+  border-radius: 50%; }
+
+.r0 {
+  border-radius: 0; }
+
+.rt0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.rb0 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.rl0 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.rr0 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.r1 {
+  border-radius: .5rem; }
+
+.rt1 {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem; }
+
+.rb1 {
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem; }
+
+.rl1 {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem; }
+
+.rr1 {
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem; }
+
+.hr {
+  border: 0;
+  border-bottom: 1px solid; }
+
+.hr2 {
+  border: 0;
+  border-bottom: .5rem solid; }
+
+.c-tint, .btn, .btn-icon {
   background-color: #3F79E1; }
 
 .hv\:c-tint:hover {
@@ -491,7 +540,7 @@ body {
 .hv\:c-white:hover {
   background-color: #FFFFFF; }
 
-.f-white, .nav__item:hover, .nav__item--active, .btn {
+.f-white, .nav__item:hover, .nav__item--active, .btn, .btn-icon {
   color: #FFFFFF; }
 
 .b-white {
@@ -500,7 +549,7 @@ body {
 .block, .input {
   display: block; }
 
-.iblock, .btn {
+.iblock, .btn, .btn-icon {
   display: inline-block; }
 
 .flex, .nav {
@@ -937,7 +986,7 @@ body {
 .hv\:f-underline:hover {
   text-decoration: underline; }
 
-.f-nodeco, .nav__item, .btn {
+.f-nodeco, .nav__item, .btn, .btn-icon {
   text-decoration: none; }
 
 .hv\:f-nodeco:hover {
@@ -950,7 +999,7 @@ body {
 .f-max {
   max-width: 32rem; }
 
-.pointer, .btn {
+.pointer, .btn, .btn-icon {
   cursor: pointer; }
 
 .inline-list, .nav {

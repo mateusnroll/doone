@@ -18,3 +18,22 @@ $borders:
 .b0 { border: none }
 
 .round { border-radius: .25rem }
+.circle { border-radius: 50%; }
+
+
+$radiusSizes: ('0', '0'),
+              ('1', '.5rem');
+
+@each $key, $val in $radiusSizes {
+	.r#{$key}  { border-radius: #{$val} }
+
+	.rt#{$key} { border-top-left-radius:  #{$val};
+				 border-top-right-radius: #{$val} }
+	.rb#{$key} { border-bottom-left-radius:  #{$val};
+				 border-bottom-right-radius: #{$val} }
+
+	.rl#{$key} { border-top-left-radius:    #{$val};
+				 border-bottom-left-radius: #{$val} }
+	.rr#{$key} { border-top-right-radius:    #{$val};
+				 border-bottom-right-radius: #{$val} }
+}

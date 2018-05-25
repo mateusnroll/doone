@@ -21,3 +21,12 @@
 .btn:active {
 	@extend .c-darkbg;
 }
+
+.btn-icon {
+	@extend .iblock;
+	@extend .pointer;
+	@extend .b0;
+	@extend .c-tint;
+	@extend .f-white;
+	@extend .f-nodeco;
+}

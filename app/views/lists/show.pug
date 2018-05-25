@@ -2,15 +2,17 @@ extends ../templates/main.pug
 include ./_task.pug
 
 block content
-	h1= list.name
-	small= list.description
+	h1.h3.mt3.mb0= list.name
+	p.mt0.h5.f-max= list.description
+
+	hr.hr2.b-gray05.round.my2
 
 	div.new-task
 		form(method='post', action=`/lists/${list.id}/tasks`)
-			p New task
-			label
-				input(type='text', name='title', autofocus)
-				button(type='submit') +
+			.flex.fl-alai-stretch
+				input.input.rr0.f-max(type='text', name='title', autofocus, placeholder='Buy milk...')
+				button.btn-icon.py0.px1.rr1.m0(type='submit')
+					i.fas.fa-plus
 
 	ul.tasks
 		each task in list.tasks
