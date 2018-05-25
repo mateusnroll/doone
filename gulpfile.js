@@ -4,7 +4,7 @@ const babel   = require('gulp-babel')
 const nodemon = require('gulp-nodemon')
 const watch   = require('gulp-watch')
 
-gulp.task('dev', ['watch-sass', 'watch-js', 'nodemon'])
+gulp.task('dev', ['watch-sass', 'watch-js', 'watch-images', 'nodemon'])
 
 gulp.task('nodemon', () => {
 	nodemon({
@@ -33,4 +33,14 @@ gulp.task('js', () => {
 	return gulp.src('./app/javascript/main.js')
 		.pipe(babel())
 		.pipe(gulp.dest('./build'))
+})
+
+gulp.task('watch-images', () => {
+	return watch('./app/images/**/*', () => { gulp.start('copy-images') })
+})
+
+gulp.task('copy-images', () => {
+	return gulp
+		.src('./app/images/**/*.svg')
+		.pipe(gulp.dest('./build/images/'))
 })
