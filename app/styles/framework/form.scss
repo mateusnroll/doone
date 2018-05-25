@@ -1,0 +1,13 @@
+.input {
+	@extend .block;
+	@extend .w-100p;
+	@extend .round;
+	@extend .p05;
+    @extend .c-white;
+	@extend .b1;
+	@extend .b-gray10;
+}
+
+.no-resize { resize: none }
+.resize-v  { resize: vertical }
+.resize-h  { resize: horizontal }

@@ -1,13 +1,14 @@
 
-$colors: ('tint',   '#3F79E1'),
-         ('blue05', '#F7FAFF'),
-		 ('blue10', '#AEB9CD'),
-		 ('blue60', '#315FB2'),
-		 ('gray',   '#828282'),
-		 ('gray05', '#E0E0E0'),
-         ('darkbg', '#566072'),
-         ('dark',   '#000000'),
-         ('white',  '#FFFFFF');
+$colors: ('tint',   #3F79E1),
+         ('blue05', #F7FAFF),
+		 ('blue10', #AEB9CD),
+		 ('blue60', #315FB2),
+		 ('gray',   #828282),
+		 ('gray05', #E0E0E0),
+		 ('gray10', #c1c7ce),
+         ('darkbg', #566072),
+         ('dark',   #000000),
+         ('white',  #FFFFFF);
 
 @each $key, $val in $colors {
     .c-#{$key} { background-color: #{$val} }

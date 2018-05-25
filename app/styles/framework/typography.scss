@@ -17,3 +17,5 @@
     font-weight: normal;
     @extend .f-dark;
 }
+
+.f-max { max-width: 32rem } // About 65 chars per line

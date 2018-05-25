@@ -5,15 +5,19 @@ block content
 	if(errors.length > 0)
 		+errors(errors)
 
-	p New list
+	h1.h2.mb0 New list
+	p.mt0.mb2.f-gray.f-max.small Create a new list. The list and its tasks will be visible only to you until you share it with another user.
+
 
 	form(method='post', action='/lists')
 		label
-			p List name
-			input(type='text', name='name', autofocus)
+			p.f-bold.f-gray.mb05 List name
+			input.input.f-max(type='text', name='name', autofocus)
 
 		label
-			p Description
-			input(type='text', name='description')
+			p.f-bold.f-gray.mb05 Description
+			textarea.input.f-max.resize-v(name='description', rows='8')
 
-		button(type='submit') Create list
+		.flex.fl-alai-baseline
+			button.btn.mt2(type='submit') Create list
+			a.link.ml2(href='/lists') Cancel

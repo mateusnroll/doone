@@ -6,7 +6,7 @@ $sizes: ('0', '0'),
         ('3', '2rem'  ),
         ('4', '2.5rem'),
         ('5', '3rem'  ),
-        ('6', '3.5rem');
+		('6', '3.5rem');
 
 @each $key, $val in $sizes {
 	.p#{$key}  { padding:        #{$val} }
@@ -25,3 +25,5 @@ $sizes: ('0', '0'),
 	.mx#{$key} { margin-left:   #{$val}; margin-right: #{$val} }
 	.my#{$key} { margin-top:    #{$val}; margin-bottom: #{$val} }
 }
+
+.w-100p { width: 100% }
