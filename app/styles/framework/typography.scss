@@ -3,3 +3,17 @@
 .h3, h3 { font-size: 1.5rem  }
 .h4, h4 { font-size: 1rem    }
 .h5, h5 { font-size: .875rem }
+
+.f-bold { font-weight: bold }
+
+.f-underline { text-decoration: underline }
+.hv\:f-underline:hover { text-decoration: underline }
+
+.f-nodeco { text-decoration: none }
+.hv\:f-nodeco:hover { text-decoration: none }
+
+.f-plain {
+    text-decoration: none;
+    font-weight: normal;
+    @extend .f-dark;
+}

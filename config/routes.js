@@ -17,4 +17,8 @@ r.get ('/lists/:id', AuthenticationService.protect, ListsController.show)
 r.post('/lists/:listId/tasks', AuthenticationService.protect, TasksController.create)
 r.post('/lists/:listId/tasks/:taskId', AuthenticationService.protect, TasksController.update)
 
+r.get ('/shared', AuthenticationService.protect, SharingsController.index)
+
+r.get ('/search', AuthenticationService.protect, SearchController.index)
+
 module.exports = r

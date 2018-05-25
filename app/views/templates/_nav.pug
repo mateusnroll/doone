@@ -1,0 +1,11 @@
+nav.c-darkbg
+	ul.container.nav
+		li.mr05
+			a(href='/lists')
+				img(src='/images/logo.svg')
+		li
+			a.nav__item(href='/lists', class=(currentPath == '/lists') && 'nav__item--active') My lists
+		li
+			a.nav__item(href='/shared', class=(currentPath == '/shared') && 'nav__item--active') Shared with me
+		li
+			a.nav__item(href='/search', class=(currentPath == '/search') && 'nav__item--active') Search

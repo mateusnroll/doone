@@ -1,0 +1,18 @@
+$borders:
+        ('1', '1px'  ),
+        ('2', '.5rem'),
+		('3', '1rem');
+
+@each $key, $val in $borders {
+	.b#{$key}  { border:        #{$val} solid }
+	.bt#{$key} { border-top:    #{$val} solid }
+	.bb#{$key} { border-bottom: #{$val} solid }
+	.bl#{$key} { border-left:   #{$val} solid }
+	.br#{$key} { border-right:  #{$val} solid }
+	.by#{$key} { border-top:    #{$val} solid;
+	             border-bottom: #{$val} solid }
+	.bx#{$key} { border-left:  #{$val} solid;
+	             border-right:  #{$val} solid }
+}
+
+.round { border-radius: .25rem }

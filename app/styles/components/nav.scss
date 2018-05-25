@@ -1,0 +1,22 @@
+.nav {
+	@extend .inline-list;
+	@extend .flex;
+	@extend .fl-alai-center;
+    @extend .c-darkbg;
+}
+
+.nav__item {
+    display: block;
+    @extend .p1;
+    @extend .f-nodeco;
+    @extend .f-blue10;
+    @extend .f-bold;
+}
+
+.nav__item:hover {
+    @extend .f-white;
+}
+
+.nav__item--active {
+    @extend .f-white;
+}

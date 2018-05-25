@@ -1,0 +1,21 @@
+.link {
+    @extend .f-tint;
+    @extend .f-underline;
+}
+
+.btn {
+	@extend .iblock;
+	@extend .c-tint;
+	@extend .f-white;
+	@extend .f-bold;
+	@extend .f-nodeco;
+	@extend .py1;
+	@extend .px2;
+	@extend .round;
+}
+.btn:hover {
+	@extend .c-blue60;
+}
+.btn:active {
+	@extend .c-darkbg;
+}

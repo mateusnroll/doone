@@ -1,11 +1,13 @@
 extends ../templates/main.pug
 
 block content
-	h1 My lists
+	.flex.fl-alai-end.fl-just-space-between
+		h1.h1.mt3.mb0 My lists
+		a.btn.iblock(href='/lists/new') New list
 
-	ul
+	ul.plain-list
 		each list in lists
-			a(href=`/lists/${list.id}`)
-				= list.name
-
-	a(href='/lists/new') New list
+			li
+				a.block.bb1.b-gray05.f-plain.py1(href=`/lists/${list.id}`, class='hv:c-blue05')
+					span.block.link.f-bold= list.name
+					span.f-gray.block= list.description

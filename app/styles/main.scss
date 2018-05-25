@@ -1,5 +1,12 @@
 @import 'vendor/normalize.scss';
 @import 'framework/base.scss';
+@import 'framework/border.scss';
 @import 'framework/colors.scss';
+@import 'framework/display.scss';
 @import 'framework/measurements.scss';
 @import 'framework/typography.scss';
+@import 'framework/lists.scss';
+
+@import 'components/nav.scss';
+@import 'components/container.scss';
+@import 'components/buttons.scss';
