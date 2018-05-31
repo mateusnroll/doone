@@ -31,7 +31,10 @@ gulp.task('watch-js', () => {
 
 gulp.task('js', () => {
 	return gulp.src('./app/javascript/main.js')
-		.pipe(babel())
+		.pipe(babel({
+			presets: ["env"],
+  			plugins: ["transform-class-properties"]
+		}))
 		.pipe(gulp.dest('./build'))
 })
 

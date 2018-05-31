@@ -11,7 +11,7 @@ $borders:
 	.br#{$key} { border-right:  #{$val} solid }
 	.by#{$key} { border-top:    #{$val} solid;
 	             border-bottom: #{$val} solid }
-	.bx#{$key} { border-left:  #{$val} solid;
+	.bx#{$key} { border-left:   #{$val} solid;
 	             border-right:  #{$val} solid }
 }
 

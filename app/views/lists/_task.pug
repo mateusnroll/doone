@@ -1,13 +1,19 @@
 mixin task(task)
-	p
-		if task.completed
-			span (done)
-		span= task.title
+	div.flex.fl-alai-center.my1
+		label.control.checkbox.mr05
+			input(type="checkbox")
+			span.control-indicator
 
-	form(method='post', action=`/lists/${task.list}/tasks/${task.id}`)
-		if(task.pending)
-			input(type='hidden', name='completed', value='true')
-			button(type='submit') Complete task
-		else
-			input(type='hidden', name='completed', value='false')
-			button(type='submit') Uncomplete
+		p.m0= task.title
+
+	span.separator.ml2.b-gray05
+
+		//if task.completed
+			span (done)
+		//form(method='post', action=`/lists/${task.list}/tasks/${task.id}`)
+			if(task.pending)
+				input(type='hidden', name='completed', value='true')
+				button(type='submit') Complete task
+			else
+				input(type='hidden', name='completed', value='false')
+				button(type='submit') Uncomplete
