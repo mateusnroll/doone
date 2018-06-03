@@ -1,8 +1,13 @@
-const gulp    = require('gulp')
-const sass    = require('gulp-sass')
-const babel   = require('gulp-babel')
-const nodemon = require('gulp-nodemon')
-const watch   = require('gulp-watch')
+const gulp       = require('gulp')
+const sass       = require('gulp-sass')
+const babel      = require('gulp-babel')
+const nodemon    = require('gulp-nodemon')
+const watch      = require('gulp-watch')
+const browserify = require('browserify')
+const source     = require('vinyl-source-stream')
+const buffer     = require('vinyl-buffer')
+const uglify     = require('gulp-uglify-es').default
+const sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('dev', ['watch-sass', 'watch-js', 'watch-images', 'nodemon'])
 
@@ -30,12 +35,18 @@ gulp.task('watch-js', () => {
 })
 
 gulp.task('js', () => {
-	return gulp.src('./app/javascript/main.js')
-		.pipe(babel({
-			presets: ["env"],
-  			plugins: ["transform-class-properties"]
-		}))
-		.pipe(gulp.dest('./build'))
+	var b = browserify({
+		entries: './app/javascript/main.js',
+		debug: true
+	  });
+
+	  return b.bundle()
+		.pipe(source('main.js'))
+		.pipe(buffer())
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(uglify())
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest('./build'));
 })
 
 gulp.task('watch-images', () => {

@@ -1,5 +1,9 @@
-import { Controller } from 'stimulus'
+const Stimulus = require('stimulus')
 
-export default class extends Controller {
-
+class TaskController extends Stimulus.Controller {
+	connect() {
+		console.log('Hello Stimulus!', this.element)
+	}
 }
+
+module.exports = TaskController

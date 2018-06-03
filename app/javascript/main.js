@@ -1,9 +1,5 @@
-import { Application } from 'stimulus'
+const Stimulus = require('stimulus')
+const Application = Stimulus.Application.start()
 
-import { TaskController } from 'task_controller'
-
-const application = Application.start()
-application.register('task', TaskController)
-
-
-console.log('i am working! loko')
+const TaskController = require('./task_controller.js')
+Application.register('task', TaskController)
