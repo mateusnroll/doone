@@ -1,8 +1,13 @@
 const Stimulus = require('stimulus')
 
 class TaskController extends Stimulus.Controller {
-	connect() {
-		console.log('Hello Stimulus!', this.element)
+	static get targets() {
+		return ['completed', 'completeForm']
+	}
+
+	complete() {
+		this.completedTarget.disabled = true
+		this.completeFormTarget.submit()
 	}
 }
 

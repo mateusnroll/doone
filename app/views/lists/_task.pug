@@ -1,19 +1,19 @@
 mixin task(task)
 	div.flex.fl-alai-center.my1(data-controller='task')
-		label.control.checkbox.mr05
-			input(type="checkbox")
-			span.control-indicator
+		if(task.pending)
+			label.control.checkbox.mr05
+				input(type='checkbox' data-target='task.completed' data-action='task#complete')
+				span.control-indicator
+			form(method='post' action=`/lists/${task.list}/tasks/${task.id}` data-target='task.completeForm')
+				input(type='hidden', name='completed', value='true')
+
+		else
+			label.control.checkbox.mr05
+				input(type='checkbox' checked='true' data-target='task.completed' data-action='task#complete')
+				span.control-indicator
+			form(method='post' action=`/lists/${task.list}/tasks/${task.id}` data-target='task.completeForm')
+				input(type='hidden', name='completed', value='false')
 
 		p.m0= task.title
 
 	span.separator.ml2.b-gray05
-
-		//if task.completed
-			span (done)
-		//form(method='post', action=`/lists/${task.list}/tasks/${task.id}`)
-			if(task.pending)
-				input(type='hidden', name='completed', value='true')
-				button(type='submit') Complete task
-			else
-				input(type='hidden', name='completed', value='false')
-				button(type='submit') Uncomplete
