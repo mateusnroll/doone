@@ -1,7 +1,7 @@
-$borders:
-        ('1', '1px'  ),
-        ('2', '.5rem'),
-		('3', '1rem');
+$borders: ('0', '0'),
+          ('1', '1px'  ),
+          ('2', '.5rem'),
+          ('3', '1rem');
 
 @each $key, $val in $borders {
 	.b#{$key}  { border:        #{$val} solid }
@@ -22,7 +22,7 @@ $borders:
 
 
 $radiusSizes: ('0', '0'),
-              ('1', '.5rem');
+              ('1', '.25rem');
 
 @each $key, $val in $radiusSizes {
 	.r#{$key}  { border-radius: #{$val} }
