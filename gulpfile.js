@@ -4,6 +4,7 @@ const babel      = require('gulp-babel')
 const nodemon    = require('gulp-nodemon')
 const watch      = require('gulp-watch')
 const browserify = require('browserify')
+const babelify   = require('babelify')
 const source     = require('vinyl-source-stream')
 const buffer     = require('vinyl-buffer')
 const uglify     = require('gulp-uglify-es').default
@@ -35,12 +36,18 @@ gulp.task('watch-js', () => {
 })
 
 gulp.task('js', () => {
-	var b = browserify({
+	const b = browserify({
 		entries: './app/javascript/main.js',
 		debug: true
-	  });
+	});
 
-	  return b.bundle()
+	const babelifyConfig = {
+		presets: ['@babel/preset-env']
+	}
+
+	return b
+		.transform(babelify.configure(babelifyConfig))
+		.bundle()
 		.pipe(source('main.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
